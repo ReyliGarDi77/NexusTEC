@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.nexustec.app">
+
+    <!-- Permisos de Red y Acceso a Microservicios -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Permisos de Geolocalización para Botón de Pánico y Grupos de Estudio -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <!-- Permisos de Notificaciones y Emergencia -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Nexus-Tec Halcones"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.NexusTec">
+
+        <!-- Pantalla Principal / Dashboard -->
+        <activity
+            android:name="ui.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Módulo: Skill-Swap -->
+        <activity
+            android:name="ui.skillswap.SkillSwapActivity"
+            android:exported="false"
+            android:label="Intercambio de Habilidades" />
+
+        <!-- Módulo: Escrow (Créditos Halcón) -->
+        <activity
+            android:name="ui.escrow.EscrowActivity"
+            android:exported="false"
+            android:label="Custodia de Créditos Halcón" />
+
+        <!-- Módulo: Botón de Pánico -->
+        <activity
+            android:name="ui.panicbutton.PanicButtonActivity"
+            android:exported="false"
+            android:label="Emergencias y Seguridad Campus" />
+
+        <!-- Módulo: Flash Study Groups -->
+        <activity
+            android:name="ui.studygroups.StudyGroupsActivity"
+            android:exported="false"
+            android:label="Grupos de Estudio Flash" />
+
+    </application>
+
+</manifest>
