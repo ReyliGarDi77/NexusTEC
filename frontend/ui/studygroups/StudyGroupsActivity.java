@@ -43,3 +43,4 @@ public class StudyGroupsActivity extends BaseActivity {
         return viewModel;
     }
 }
+

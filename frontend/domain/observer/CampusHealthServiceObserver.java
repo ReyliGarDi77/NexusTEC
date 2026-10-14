@@ -27,3 +27,4 @@ public class CampusHealthServiceObserver implements PanicAlertObserver {
         return "Servicio Médico y Primeros Auxilios";
     }
 }
+

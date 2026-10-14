@@ -43,3 +43,4 @@ public class PanicButtonActivity extends BaseActivity {
         return viewModel;
     }
 }
+

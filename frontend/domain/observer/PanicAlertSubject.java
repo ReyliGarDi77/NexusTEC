@@ -27,3 +27,4 @@ public interface PanicAlertSubject {
      */
     void notifyAlertStatusUpdated(PanicAlert alert);
 }
+

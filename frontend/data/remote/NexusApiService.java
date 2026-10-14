@@ -63,3 +63,4 @@ public interface NexusApiService {
 
     ApiResponse<StudyGroup> leaveStudyGroup(String groupId, String studentId);
 }
+

@@ -57,3 +57,4 @@ public abstract class BaseAdapter<T, VH extends BaseAdapter.BaseViewHolder> {
         // En Android real, notifica al RecyclerView para redibujar
     }
 }
+

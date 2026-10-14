@@ -66,3 +66,4 @@ public class StudyGroupsFragment extends BaseFragment {
         return adapter;
     }
 }
+

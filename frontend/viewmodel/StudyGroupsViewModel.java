@@ -81,3 +81,4 @@ public class StudyGroupsViewModel extends BaseViewModel {
         selectedGroup.setValue(group);
     }
 }
+

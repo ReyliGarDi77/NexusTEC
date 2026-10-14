@@ -35,3 +35,4 @@ public class TriggerPanicAlertUseCase {
         return savedAlert;
     }
 }
+

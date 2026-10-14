@@ -57,3 +57,4 @@ public class EscrowFragment extends BaseFragment {
         return adapter;
     }
 }
+

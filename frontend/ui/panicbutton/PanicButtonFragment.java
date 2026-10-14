@@ -52,3 +52,4 @@ public class PanicButtonFragment extends BaseFragment {
         viewModel.cancelAlert(alertId, reason);
     }
 }
+

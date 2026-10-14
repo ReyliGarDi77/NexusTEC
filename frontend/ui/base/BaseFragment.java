@@ -30,3 +30,4 @@ public abstract class BaseFragment {
 
     protected abstract void observeViewModel();
 }
+

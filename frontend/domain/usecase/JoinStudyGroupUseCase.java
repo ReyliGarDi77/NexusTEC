@@ -36,3 +36,4 @@ public class JoinStudyGroupUseCase {
         return repository.joinGroup(groupId, studentId);
     }
 }
+

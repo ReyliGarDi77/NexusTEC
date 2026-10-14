@@ -74,3 +74,4 @@ public class PanicAlertManager implements PanicAlertSubject {
         observers.clear();
     }
 }
+

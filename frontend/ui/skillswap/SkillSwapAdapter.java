@@ -33,3 +33,4 @@ public class SkillSwapAdapter extends BaseAdapter<SkillSwap, SkillSwapAdapter.Sk
         }
     }
 }
+

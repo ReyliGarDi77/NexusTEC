@@ -64,3 +64,4 @@ public abstract class BaseActivity {
         return (T) viewRegistry.get(viewId);
     }
 }
+

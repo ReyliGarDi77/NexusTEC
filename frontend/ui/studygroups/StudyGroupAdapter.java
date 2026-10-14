@@ -36,3 +36,4 @@ public class StudyGroupAdapter extends BaseAdapter<StudyGroup, StudyGroupAdapter
         }
     }
 }
+

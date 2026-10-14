@@ -64,3 +64,4 @@ public class SkillSwapFragment extends BaseFragment {
         return adapter;
     }
 }
+

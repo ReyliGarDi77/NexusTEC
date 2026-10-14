@@ -33,3 +33,4 @@ public class EscrowAdapter extends BaseAdapter<EscrowTransaction, EscrowAdapter.
         }
     }
 }
+

@@ -98,3 +98,4 @@ Para compilar las clases del proyecto en modo verificación:
 cd frontend
 javac -d ../bin $(Get-ChildItem -Recurse -Filter *.java | ForEach-Object { $_.FullName })
 ```
+

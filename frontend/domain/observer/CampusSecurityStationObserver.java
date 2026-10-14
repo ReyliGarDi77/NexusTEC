@@ -42,3 +42,4 @@ public class CampusSecurityStationObserver implements PanicAlertObserver {
         return new ArrayList<>(dispatchQueue);
     }
 }
+

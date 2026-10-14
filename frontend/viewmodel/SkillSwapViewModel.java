@@ -66,3 +66,4 @@ public class SkillSwapViewModel extends BaseViewModel {
         selectedSwap.setValue(swap);
     }
 }
+

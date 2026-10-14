@@ -36,3 +36,4 @@ public class EmergencyNotificationCenterObserver implements PanicAlertObserver {
         return "Centro de Notificaciones y Enlace Institucional";
     }
 }
+
