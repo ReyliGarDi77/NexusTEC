@@ -19,3 +19,4 @@ Infraestructura de microservicios modulares desacoplados para la plataforma inst
 - **Tokens Institucionales:** Autenticación de estudiantes mediante correo institucional `@toluca.tecnm.mx`.
 - **Integridad Escrow:** Generación de firma hash SHA-256 para cada transacción bajo custodia antes de la liberación o mediación.
 - **Canal de Emergencia:** Prioridad absoluta QoS en el microservicio de Botón de Pánico con redundancia de observadores en tiempo real.
+

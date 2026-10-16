@@ -42,3 +42,4 @@ Guía de estilo y lenguaje de diseño inmersivo para la plataforma móvil **Nexu
 
 ### C. Navegación Fluida
 - **Slide & Fade:** Desplazamiento vertical suave (`slide_in_up.xml` / `slide_out_down.xml`) con duración de `280ms` emulando las hojas modulares de iOS.
+

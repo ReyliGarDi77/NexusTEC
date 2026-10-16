@@ -111,3 +111,4 @@ sequenceDiagram
     end
     VM-->>UI: Estado de alarma confirmado y telemetría en vivo
 ```
+

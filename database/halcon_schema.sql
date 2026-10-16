@@ -99,3 +99,4 @@ CREATE INDEX idx_swaps_status ON skill_swaps(status);
 CREATE INDEX idx_escrow_status ON escrow_transactions(status);
 CREATE INDEX idx_panic_status ON panic_alerts(alert_status);
 CREATE INDEX idx_study_status ON study_groups(status);
+
