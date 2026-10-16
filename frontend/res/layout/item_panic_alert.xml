@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tarjeta de Alerta de Emergencia Activa -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/spacing_sm"
+    android:background="@drawable/bg_card_glass_panic"
+    android:orientation="vertical"
+    android:padding="@dimen/spacing_md">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_alert_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🚨 ALERTA CRÍTICA #911"
+            android:textSize="12sp"
+            android:textColor="@color/panic_crimson_glow"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_alert_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="PATRULLA EN CAMINO"
+            android:textSize="10sp"
+            android:textColor="@color/text_primary"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_alert_student_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Estudiante: Carlos M. (ISC) · Matrícula: 21280942"
+        android:textSize="13sp"
+        android:textColor="@color/text_primary" />
+
+    <TextView
+        android:id="@+id/tv_alert_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="📍 Ubicación: Edificio A - Planta Baja (Caseta Sur)"
+        android:textSize="11sp"
+        android:textColor="@color/text_secondary" />
+
+</LinearLayout>

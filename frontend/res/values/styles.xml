@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ======================================================== -->
+    <!-- TEMA PRINCIPAL: TecNM Luxury Dark Mode                   -->
+    <!-- ======================================================== -->
+    <style name="Theme.NexusTec" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Colores Primarios Institucionales -->
+        <item name="colorPrimary">@color/tecnm_navy_primary</item>
+        <item name="colorPrimaryVariant">@color/tecnm_navy_dark</item>
+        <item name="colorOnPrimary">@color/text_primary</item>
+
+        <!-- Acentos de Oro TecNM -->
+        <item name="colorSecondary">@color/tecnm_gold_accent</item>
+        <item name="colorSecondaryVariant">@color/tecnm_gold_dark</item>
+        <item name="colorOnSecondary">@color/text_on_gold</item>
+
+        <!-- Fondos Superficiales Apple HIG -->
+        <item name="android:windowBackground">@color/canvas_dark_obsidian</item>
+        <item name="android:statusBarColor">@color/canvas_dark_obsidian</item>
+        <item name="android:navigationBarColor">@color/glass_bottom_nav</item>
+    </style>
+
+    <!-- ======================================================== -->
+    <!-- ESTILOS DE TIPOGRAFÍA (Apple Human Interface Guidelines)  -->
+    <!-- ======================================================== -->
+    <style name="Typography.DisplayHero">
+        <item name="android:textSize">@dimen/text_display</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">-0.02</item>
+    </style>
+
+    <style name="Typography.HeadlineMedium">
+        <item name="android:textSize">@dimen/text_headline_medium</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Typography.GoldAccent">
+        <item name="android:textSize">@dimen/text_headline_large</item>
+        <item name="android:textColor">@color/tecnm_gold_accent</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Typography.BodySubtle">
+        <item name="android:textSize">@dimen/text_body_medium</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:lineSpacingExtra">3dp</item>
+    </style>
+
+    <style name="Typography.CaptionBadge">
+        <item name="android:textSize">@dimen/text_caption</item>
+        <item name="android:textColor">@color/halcon_cyan_tech</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.05</item>
+    </style>
+
+    <!-- ======================================================== -->
+    <!-- ESTILOS DE COMPONENTES DE ALTA GAMA                      -->
+    <!-- ======================================================== -->
+    <style name="Card.Glassmorphic">
+        <item name="android:background">@drawable/bg_card_glass_dark</item>
+        <item name="android:elevation">@dimen/elevation_card_resting</item>
+        <item name="android:padding">@dimen/spacing_lg</item>
+    </style>
+
+    <style name="Card.Glassmorphic.Gold">
+        <item name="android:background">@drawable/bg_card_glass_gold</item>
+        <item name="android:elevation">@dimen/elevation_card_hover</item>
+        <item name="android:padding">@dimen/spacing_xl</item>
+    </style>
+
+    <style name="Button.GoldPill">
+        <item name="android:background">@drawable/bg_button_gradient_gold</item>
+        <item name="android:textColor">@color/text_on_gold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_body_large</item>
+        <item name="android:paddingStart">@dimen/spacing_xl</item>
+        <item name="android:paddingEnd">@dimen/spacing_xl</item>
+        <item name="android:minHeight">@dimen/touch_target_min</item>
+    </style>
+
+    <style name="Button.EmergencyPanic">
+        <item name="android:background">@drawable/bg_button_panic_pulsing</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:elevation">@dimen/elevation_modal</item>
+    </style>
+</resources>

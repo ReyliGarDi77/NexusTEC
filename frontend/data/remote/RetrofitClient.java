@@ -40,11 +40,12 @@ public class RetrofitClient {
      * Inicializa la implementación cliente de la interfaz de servicios.
      */
     private void initMockService() {
-        // En entorno Android de producción, aquí se inicializa:
+        // En entorno de demostración, pruebas y offline para ITTOL:
+        this.apiService = new MockNexusApiService();
+        // En entorno de producción conectado a gateway en la nube:
         // Retrofit retrofit = new Retrofit.Builder()
         //         .baseUrl(baseUrl)
         //         .addConverterFactory(GsonConverterFactory.create())
-        //         .client(okHttpClient)
         //         .build();
         // this.apiService = retrofit.create(NexusApiService.class);
     }

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Nexus-Tec</string>
+    <string name="app_tagline">Plataforma Inteligente de Vinculación y Comunidad Halcón ITTOL</string>
+    <string name="institution_name">Instituto Tecnológico de Toluca | TecNM</string>
+
+    <!-- Navegación Principal -->
+    <string name="nav_skill_swap">Skill-Swap</string>
+    <string name="nav_escrow">Créditos Halcón</string>
+    <string name="nav_panic">Emergencia</string>
+    <string name="nav_study_groups">Grupos Flash</string>
+    <string name="nav_profile">Mi Perfil</string>
+
+    <!-- Módulo: Skill-Swap -->
+    <string name="skill_swap_title">Marketplace de Conocimiento</string>
+    <string name="skill_swap_subtitle">Intercambia habilidades académicas respaldadas por Créditos Halcón</string>
+    <string name="skill_swap_search_hint">Buscar materia, asesoría o software...</string>
+    <string name="skill_swap_propose_button">+ Proponer Intercambio</string>
+    <string name="skill_swap_offered_label">Habilidad Ofrecida</string>
+    <string name="skill_swap_requested_label">Habilidad Solicitada</string>
+
+    <!-- Módulo: Escrow (Créditos Halcón) -->
+    <string name="escrow_title">Custodia Inteligente Halcón</string>
+    <string name="escrow_balance_label">Saldo en Billetera Estudiantil</string>
+    <string name="escrow_balance_unit">Créditos Halcón (CH)</string>
+    <string name="escrow_vault_subtitle">Fondos protegidos criptográficamente hasta satisfacción mutua</string>
+    <string name="escrow_release_button">Confirmar y Liberar Fondos</string>
+    <string name="escrow_dispute_button">Reportar Disputa / Mediación</string>
+    <string name="escrow_state_pending">Pendiente de Depósito</string>
+    <string name="escrow_state_in_hold">En Custodia Segura (Hold)</string>
+    <string name="escrow_state_completed">Completado y Acreditado</string>
+    <string name="escrow_state_disputed">En Arbitraje Institucional</string>
+
+    <!-- Módulo: Botón de Pánico -->
+    <string name="panic_title">Alerta Segura Campus ITTOL</string>
+    <string name="panic_subtitle">Conexión prioritaria directa con casetas de vigilancia y servicios de emergencia</string>
+    <string name="panic_press_action">PULSA PARA ACTIVAR ALERTA</string>
+    <string name="panic_silent_mode">Modo Discreto / Silencioso</string>
+    <string name="panic_silent_mode_desc">Emite alerta GPS sin sonido ni vibración en el dispositivo</string>
+    <string name="panic_gps_status">GPS Campus: Bloqueo Satelital Activo (Precisión 3m)</string>
+    <string name="panic_level_critical">EMERGENCIA CRÍTICA</string>
+    <string name="panic_level_high">ALTO RIESGO</string>
+    <string name="panic_cancel_button">Cancelar Alarma (Falsa Alerta)</string>
+
+    <!-- Módulo: Flash Study Groups -->
+    <string name="study_groups_title">Grupos de Estudio Flash</string>
+    <string name="study_groups_subtitle">Reúnete al instante con compañeros en salas, cubículos y cafetería</string>
+    <string name="study_groups_filter_all">Todos</string>
+    <string name="study_groups_filter_sistemas">Sistemas</string>
+    <string name="study_groups_filter_mecatronica">Mecatrónica</string>
+    <string name="study_groups_filter_quimica">Química</string>
+    <string name="study_groups_join_button">Unirme a la Mesa</string>
+    <string name="study_groups_create_button">+ Abrir Nueva Sala Flash</string>
+
+    <!-- Estado y retroalimentación -->
+    <string name="status_loading">Sincronizando con campus virtual...</string>
+    <string name="status_error_retry">Reintentar conexión</string>
+    <string name="status_success">Operación confirmada con éxito</string>
+</resources>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tarjeta Flotante Glassmorphic para Intercambio Skill-Swap -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/spacing_md"
+    android:background="@drawable/ripple_glass_card"
+    android:orientation="vertical"
+    android:padding="@dimen/spacing_lg"
+    android:clickable="true"
+    android:focusable="true">
+
+    <!-- Fila Superior: Categoría y Badge de Créditos -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_swap_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ING. EN SISTEMAS"
+            android:textSize="10sp"
+            android:textColor="@color/halcon_cyan_tech"
+            android:textStyle="bold"
+            android:letterSpacing="0.08" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_halcon_coin"
+                android:contentDescription="Créditos" />
+
+            <TextView
+                android:id="@+id/tv_swap_credits"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="25 CH"
+                android:textSize="13sp"
+                android:textColor="@color/tecnm_gold_accent"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- Habilidad Ofrecida y Solicitada con Flechas -->
+    <TextView
+        android:id="@+id/tv_swap_offered"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Ofrece: Estructura de Datos en Java &amp; Algoritmos"
+        android:textSize="15sp"
+        android:textColor="@color/text_primary"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_swap_requested"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:text="Busca: Cálculo Integral &amp; Ecuaciones Diferenciales"
+        android:textSize="13sp"
+        android:textColor="@color/text_secondary" />
+
+    <!-- Fila Inferior: Ubicación y Horario -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_md"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:src="@drawable/ic_location_pin"
+            android:contentDescription="Ubicación" />
+
+        <TextView
+            android:id="@+id/tv_swap_location"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="4dp"
+            android:text="Biblioteca Central ITTOL · Cubículo 3"
+            android:textSize="11sp"
+            android:textColor="@color/text_tertiary" />
+
+        <TextView
+            android:id="@+id/tv_swap_status_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_chip_active"
+            android:text="DISPONIBLE"
+            android:textColor="@color/halcon_cyan_tech"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp" />
+    </LinearLayout>
+
+</LinearLayout>

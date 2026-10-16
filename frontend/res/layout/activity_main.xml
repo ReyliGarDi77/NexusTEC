@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pantalla Principal: Dashboard Nexus-Tec ITTOL con Header Flotante y Navegación Glassmorphic -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/canvas_dark_obsidian">
+
+    <!-- ======================================================== -->
+    <!-- HEADER SUPERIOR: Marca Institucional TecNM + Billetera   -->
+    <!-- ======================================================== -->
+    <LinearLayout
+        android:id="@+id/layout_header_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/spacing_lg"
+        android:paddingEnd="@dimen/spacing_lg"
+        android:paddingTop="@dimen/spacing_xl"
+        android:paddingBottom="@dimen/spacing_md"
+        android:background="#D9080C14">
+
+        <!-- Logo / Emblema Halcón ITTOL -->
+        <ImageView
+            android:id="@+id/img_halcon_logo"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:src="@drawable/ic_nexus_halcon_logo"
+            android:contentDescription="Emblema Halcón ITTOL" />
+
+        <!-- Títulos Institucionales -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="@dimen/spacing_md">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NEXUS-TEC"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:letterSpacing="0.05" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TecNM · Halcones Toluca"
+                android:textSize="11sp"
+                android:textColor="@color/tecnm_gold_accent"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Widget de Billetera Créditos Halcón (Píldora Flotante) -->
+        <LinearLayout
+            android:id="@+id/btn_wallet_widget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_chip_active"
+            android:paddingStart="@dimen/spacing_md"
+            android:paddingEnd="@dimen/spacing_md"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_halcon_coin"
+                android:contentDescription="Créditos Halcón" />
+
+            <TextView
+                android:id="@+id/tv_header_balance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="150 CH"
+                android:textColor="@color/halcon_cyan_tech"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ======================================================== -->
+    <!-- CONTENEDOR MODULAR DE FRAGMENTS                         -->
+    <!-- ======================================================== -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/layout_header_top"
+        android:layout_above="@+id/layout_bottom_nav" />
+
+    <!-- ======================================================== -->
+    <!-- BARRA INFERIOR DE NAVEGACIÓN (Glassmorphism Apple HIG)   -->
+    <!-- ======================================================== -->
+    <LinearLayout
+        android:id="@+id/layout_bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:background="@drawable/bg_bottom_nav_glass"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/spacing_md"
+        android:paddingEnd="@dimen/spacing_md">
+
+        <!-- Tab: Skill-Swap -->
+        <LinearLayout
+            android:id="@+id/nav_item_skill_swap"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/icon_nav_skill"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_skill_swap"
+                android:contentDescription="Skill Swap" />
+
+            <TextView
+                android:id="@+id/label_nav_skill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/nav_skill_swap"
+                android:textSize="11sp"
+                android:textColor="@color/halcon_cyan_tech"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Tab: Escrow (Créditos Halcón) -->
+        <LinearLayout
+            android:id="@+id/nav_item_escrow"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/icon_nav_escrow"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_halcon_coin"
+                android:contentDescription="Escrow" />
+
+            <TextView
+                android:id="@+id/label_nav_escrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Escrow"
+                android:textSize="11sp"
+                android:textColor="@color/text_secondary" />
+        </LinearLayout>
+
+        <!-- Tab: Botón de Pánico (Destacado en Carmesí) -->
+        <LinearLayout
+            android:id="@+id/nav_item_panic"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/icon_nav_panic"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:src="@drawable/ic_panic_radar"
+                android:contentDescription="Botón de Pánico" />
+
+            <TextView
+                android:id="@+id/label_nav_panic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Pánico"
+                android:textSize="11sp"
+                android:textColor="@color/panic_crimson"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Tab: Grupos de Estudio Flash -->
+        <LinearLayout
+            android:id="@+id/nav_item_study"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/icon_nav_study"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_study_group"
+                android:contentDescription="Grupos Flash" />
+
+            <TextView
+                android:id="@+id/label_nav_study"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Estudio"
+                android:textSize="11sp"
+                android:textColor="@color/text_secondary" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

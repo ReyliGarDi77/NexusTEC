@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="64dp"
+    android:height="64dp"
+    android:viewportWidth="64"
+    android:viewportHeight="64">
+    <!-- Fondo Hexagonal Sutil -->
+    <path
+        android:fillColor="#1A1B396A"
+        android:strokeColor="#4DD4AF37"
+        android:strokeWidth="1.5"
+        android:pathData="M32,4 L56,18 L56,46 L32,60 L8,46 L8,18 Z" />
+
+    <!-- Cresta del Halcón ITTOL en Oro TecNM -->
+    <path
+        android:fillColor="#D4AF37"
+        android:pathData="M32,10 L38,22 L48,16 L42,28 L52,30 L40,38 L44,50 L32,42 L20,50 L24,38 L12,30 L22,28 L16,16 L26,22 Z" />
+
+    <!-- Ojo del Halcón y Nodos Cibernéticos en Cian -->
+    <path
+        android:fillColor="#00F0FF"
+        android:pathData="M32,24 A3,3 0 1,1 32,30 A3,3 0 1,1 32,24 Z" />
+    <path
+        android:fillColor="#00F0FF"
+        android:pathData="M24,32 A2,2 0 1,1 24,36 A2,2 0 1,1 24,32 Z" />
+    <path
+        android:fillColor="#00F0FF"
+        android:pathData="M40,32 A2,2 0 1,1 40,36 A2,2 0 1,1 40,32 Z" />
+
+    <!-- Conexiones de Circuito Nexus -->
+    <path
+        android:strokeColor="#00F0FF"
+        android:strokeWidth="1"
+        android:pathData="M24,34 L32,27 L40,34 M32,30 L32,42" />
+</vector>

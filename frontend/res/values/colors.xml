@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ======================================================== -->
+    <!-- IDENTIDAD INSTITUCIONAL TECNM & ITTOL (Alta Gama)        -->
+    <!-- ======================================================== -->
+    <!-- Azul Marino Oficial TecNM -->
+    <color name="tecnm_navy_primary">#1B396A</color>
+    <color name="tecnm_navy_dark">#0E2140</color>
+    <color name="tecnm_navy_surface">#142544</color>
+    <color name="tecnm_navy_surface_elevated">#1E355B</color>
+
+    <!-- Oro Institucional TecNM (Acabado Burnished / Joyería) -->
+    <color name="tecnm_gold_accent">#D4AF37</color>
+    <color name="tecnm_gold_light">#F5E6B3</color>
+    <color name="tecnm_gold_dark">#997B20</color>
+    <color name="tecnm_gold_glow">#FFD700</color>
+
+    <!-- Acentos Vibrantes Halcones ITTOL -->
+    <color name="halcon_cyan_tech">#00F0FF</color>
+    <color name="halcon_blue_vibrant">#0284C7</color>
+    <color name="halcon_blue_deep">#0369A1</color>
+
+    <!-- ======================================================== -->
+    <!-- ACENTOS FUNCIONALES DE MÓDULOS                           -->
+    <!-- ======================================================== -->
+    <!-- Escrow / Billetera de Créditos Halcón (Esmeralda / Jade) -->
+    <color name="escrow_emerald">#10B981</color>
+    <color name="escrow_emerald_glow">#34D399</color>
+    <color name="escrow_emerald_dark">#065F46</color>
+    <color name="escrow_emerald_glass">#1A10B981</color>
+
+    <!-- Botón de Pánico / Emergencias Campus (Carmesí Láser) -->
+    <color name="panic_crimson">#EF4444</color>
+    <color name="panic_crimson_glow">#F87171</color>
+    <color name="panic_crimson_deep">#991B1B</color>
+    <color name="panic_crimson_radar_ring">#4DEE4444</color>
+    <color name="panic_crimson_radar_outer">#1AEE4444</color>
+
+    <!-- Skill-Swap (Cian & Azul Dinámico) -->
+    <color name="skill_swap_cyan">#06B6D4</color>
+    <color name="skill_swap_blue">#3B82F6</color>
+    <color name="skill_swap_glass">#1A06B6D4</color>
+
+    <!-- Flash Study Groups (Violeta & Índigo Neón) -->
+    <color name="study_violet">#8B5CF6</color>
+    <color name="study_indigo">#6366F1</color>
+    <color name="study_violet_glass">#1A8B5CF6</color>
+
+    <!-- ======================================================== -->
+    <!-- LIENZO Y GLASSMORPHISM (Modo Oscuro OLED)                -->
+    <!-- ======================================================== -->
+    <color name="canvas_dark_obsidian">#080C14</color>
+    <color name="canvas_dark_elevated">#0F172A</color>
+    <color name="glass_surface_base">#CC131D31</color>
+    <color name="glass_surface_stroke">#334A70</color>
+    <color name="glass_surface_highlight">#4D70A3</color>
+    <color name="glass_bottom_nav">#E60B1220</color>
+
+    <!-- ======================================================== -->
+    <!-- TIPOGRAFÍA Y CONTRASTES (Apple HIG)                      -->
+    <!-- ======================================================== -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#94A3B8</color>
+    <color name="text_tertiary">#64748B</color>
+    <color name="text_on_gold">#0E2140</color>
+    <color name="text_on_emerald">#022C22</color>
+
+    <!-- Utilidades -->
+    <color name="divider_subtle">#1E293B</color>
+    <color name="badge_background">#1E293B</color>
+    <color name="transparent">#00000000</color>
+    <color name="white_10">#1AFFFFFF</color>
+    <color name="white_20">#33FFFFFF</color>
+    <color name="white_40">#66FFFFFF</color>
+</resources>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tarjeta Flotante para Grupos de Estudio Flash ITTOL -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/spacing_md"
+    android:background="@drawable/ripple_glass_card"
+    android:orientation="vertical"
+    android:padding="@dimen/spacing_lg"
+    android:clickable="true"
+    android:focusable="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_group_subject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Arquitectura de Computadoras"
+            android:textSize="15sp"
+            android:textColor="@color/text_primary"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_group_capacity_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/bg_chip_active"
+            android:text="3/5 Estudiantes"
+            android:textSize="10sp"
+            android:textColor="@color/study_violet"
+            android:textStyle="bold"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_group_topic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Resolución de microinstrucciones y pipeline para el examen departamental."
+        android:textSize="13sp"
+        android:textColor="@color/text_secondary" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_md">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:src="@drawable/ic_location_pin"
+                android:contentDescription="Ubicación" />
+
+            <TextView
+                android:id="@+id/tv_group_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="Edificio F · Cubículo 2"
+                android:textSize="11sp"
+                android:textColor="@color/text_tertiary" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_join_group"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/bg_button_gradient_gold"
+            android:text="Unirme"
+            android:textColor="@color/text_on_gold"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp" />
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="36dp"
+    android:height="36dp"
+    android:viewportWidth="36"
+    android:viewportHeight="36">
+    <!-- Moneda Oro TecNM Exterior -->
+    <path
+        android:fillColor="#D4AF37"
+        android:pathData="M18,2 C9.16,2 2,9.16 2,18 C2,26.84 9.16,34 18,34 C26.84,34 34,26.84 34,18 C34,9.16 26.84,2 18,2 Z" />
+    <!-- Borde interior grabado -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.2"
+        android:fillColor="#1B396A"
+        android:pathData="M18,5 C10.82,5 5,10.82 5,18 C5,25.18 10.82,31 18,31 C25.18,31 31,25.18 31,18 C31,10.82 25.18,5 18,5 Z" />
+    <!-- Halcón Central en Oro -->
+    <path
+        android:fillColor="#FFD700"
+        android:pathData="M18,10 L21,16 L27,15 L23,20 L27,24 L20,23 L18,28 L16,23 L9,24 L13,20 L9,15 L15,16 Z" />
+</vector>

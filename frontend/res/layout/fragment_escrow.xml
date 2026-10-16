@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Módulo Escrow: Custodia Inteligente de Créditos Halcón -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/canvas_dark_obsidian"
+    android:paddingStart="@dimen/spacing_lg"
+    android:paddingEnd="@dimen/spacing_lg"
+    android:paddingTop="@dimen/spacing_md"
+    android:paddingBottom="80dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Título del Módulo -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/escrow_title"
+            android:style="@style/Typography.HeadlineMedium" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/escrow_vault_subtitle"
+            android:style="@style/Typography.BodySubtle" />
+
+        <!-- ======================================================== -->
+        <!-- TARJETA DORADA DE BILLETERA (Acabado Metálico TecNM)     -->
+        <!-- ======================================================== -->
+        <LinearLayout
+            android:id="@+id/card_wallet_gold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_lg"
+            android:background="@drawable/bg_card_glass_gold"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_xl"
+            android:elevation="@dimen/elevation_card_hover">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BILLETERA HALCÓN ITTOL"
+                    android:textSize="11sp"
+                    android:textColor="@color/tecnm_gold_accent"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.08" />
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/ic_shield_secure"
+                    android:contentDescription="Custodia Segura" />
+            </RelativeLayout>
+
+            <!-- Saldo en Grande -->
+            <TextView
+                android:id="@+id/tv_wallet_balance_large"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_md"
+                android:text="150.00 CH"
+                android:textSize="32sp"
+                android:textColor="@color/text_primary"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Equivalente a 150 Horas de Vinculación y Asesoría Académica"
+                android:textSize="12sp"
+                android:textColor="@color/text_secondary" />
+
+            <!-- Métricas de Retención -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_lg"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Disponible"
+                        android:textSize="11sp"
+                        android:textColor="@color/text_tertiary" />
+
+                    <TextView
+                        android:id="@+id/tv_balance_available"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="110.00 CH"
+                        android:textSize="15sp"
+                        android:textColor="@color/escrow_emerald_glow"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="En Custodia (Hold)"
+                        android:textSize="11sp"
+                        android:textColor="@color/text_tertiary" />
+
+                    <TextView
+                        android:id="@+id/tv_balance_in_hold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="40.00 CH"
+                        android:textSize="15sp"
+                        android:textColor="@color/tecnm_gold_accent"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ======================================================== -->
+        <!-- STEPPER DEL PATRÓN STATE (Ciclo de Vida Activo)          -->
+        <!-- ======================================================== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xl"
+            android:background="@drawable/bg_card_glass_dark"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_lg">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ESTADO DE CUSTODIA (PATRÓN STATE)"
+                android:textSize="11sp"
+                android:textColor="@color/halcon_cyan_tech"
+                android:textStyle="bold"
+                android:letterSpacing="0.05" />
+
+            <TextView
+                android:id="@+id/tv_current_state_badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xs"
+                android:text="IN_ESCROW_HOLD (Fondos Asegurados)"
+                android:textSize="16sp"
+                android:textColor="@color/text_primary"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_escrow_audit_note"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="El prestador está realizando la asesoría de 'Cálculo Multivariable'. Los fondos se encuentran retenidos y protegidos."
+                android:style="@style/Typography.BodySubtle" />
+
+            <!-- Botones de Transición de Estado -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_lg"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_escrow_release"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_chip_active"
+                    android:text="Liberar Fondos"
+                    android:textColor="@color/halcon_cyan_tech"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_escrow_dispute"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/spacing_sm"
+                    android:background="@drawable/bg_chip_inactive"
+                    android:text="Abrir Disputa"
+                    android:textColor="@color/panic_crimson_glow"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Historial de Transacciones -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xl"
+            android:text="Historial de Movimientos"
+            android:style="@style/Typography.HeadlineMedium" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_escrow_transactions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_md"
+            android:nestedScrollingEnabled="false" />
+
+    </LinearLayout>
+</ScrollView>

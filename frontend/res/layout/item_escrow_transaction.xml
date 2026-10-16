@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tarjeta para Transacción de Custodia Escrow de Créditos Halcón -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/spacing_sm"
+    android:background="@drawable/ripple_glass_card"
+    android:orientation="vertical"
+    android:padding="@dimen/spacing_md"
+    android:clickable="true"
+    android:focusable="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_escrow_tx_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TX: #ESCROW-9842"
+            android:textSize="11sp"
+            android:textColor="@color/halcon_cyan_tech"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_escrow_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="+30.00 CH"
+            android:textSize="14sp"
+            android:textColor="@color/escrow_emerald_glow"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_escrow_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Custodia de Asesoría de Métodos Numéricos"
+        android:textSize="13sp"
+        android:textColor="@color/text_primary" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp">
+
+        <TextView
+            android:id="@+id/tv_escrow_timestamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="16 Oct 2026 · 11:30 AM"
+            android:textSize="11sp"
+            android:textColor="@color/text_tertiary" />
+
+        <TextView
+            android:id="@+id/tv_escrow_status_pill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/bg_chip_active"
+            android:text="RELEASED"
+            android:textSize="10sp"
+            android:textColor="@color/halcon_cyan_tech"
+            android:textStyle="bold"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp" />
+    </RelativeLayout>
+
+</LinearLayout>

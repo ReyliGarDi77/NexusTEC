@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Anillo concéntrico de radar para animación de pulsación de emergencia -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <stroke
+        android:width="2dp"
+        android:color="#80EF4444" />
+    <solid android:color="#1AEF4444" />
+</shape>

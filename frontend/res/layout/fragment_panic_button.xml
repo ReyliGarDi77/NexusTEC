@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Módulo Botón de Pánico: Seguridad de Alta Prioridad Campus ITTOL -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/canvas_dark_obsidian"
+    android:paddingStart="@dimen/spacing_lg"
+    android:paddingEnd="@dimen/spacing_lg"
+    android:paddingTop="@dimen/spacing_md"
+    android:paddingBottom="80dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- Encabezado de Emergencia -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/panic_title"
+            android:style="@style/Typography.HeadlineMedium"
+            android:textColor="@color/panic_crimson_glow" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/panic_subtitle"
+            android:style="@style/Typography.BodySubtle"
+            android:gravity="center" />
+
+        <!-- ======================================================== -->
+        <!-- ZONA CENTRAL DEL BOTÓN CON ONDAS DE RADAR                -->
+        <!-- ======================================================== -->
+        <RelativeLayout
+            android:id="@+id/layout_panic_ripple_container"
+            android:layout_width="260dp"
+            android:layout_height="260dp"
+            android:layout_marginTop="@dimen/spacing_2xl"
+            android:gravity="center">
+
+            <!-- Anillo Exterior Pulsante -->
+            <View
+                android:id="@+id/view_radar_pulse_outer"
+                android:layout_width="240dp"
+                android:layout_height="240dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/bg_panic_radar_ring" />
+
+            <!-- Anillo Intermedio -->
+            <View
+                android:id="@+id/view_radar_pulse_inner"
+                android:layout_width="190dp"
+                android:layout_height="190dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/bg_panic_radar_ring" />
+
+            <!-- Botón Central de Emergencia Táctil -->
+            <LinearLayout
+                android:id="@+id/btn_trigger_panic"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/bg_button_panic_pulsing"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:elevation="16dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_panic_radar"
+                    android:contentDescription="Alarma de Pánico" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="SOS"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:letterSpacing="0.08" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PULSAR"
+                    android:textSize="10sp"
+                    android:textColor="#FFDDDD"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!-- ======================================================== -->
+        <!-- TARJETA DE TELEMETRÍA Y GPS CAMPUS                       -->
+        <!-- ======================================================== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_2xl"
+            android:background="@drawable/bg_card_glass_dark"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_lg">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_location_pin"
+                    android:contentDescription="GPS" />
+
+                <TextView
+                    android:id="@+id/tv_gps_telemetry_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_sm"
+                    android:text="GEOLOCALIZACIÓN CAMPUS ITTOL"
+                    android:textSize="11sp"
+                    android:textColor="@color/halcon_cyan_tech"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.05" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_gps_zone_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xs"
+                android:text="Edificio D - Laboratorios de Cómputo"
+                android:textSize="15sp"
+                android:textColor="@color/text_primary"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_gps_coords"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Coordenadas: Lat 19.2562° N, Lon -99.5815° W · Precisión: 2.8m"
+                android:textSize="11sp"
+                android:textColor="@color/text_tertiary" />
+
+            <!-- Selector de Nivel de Riesgo -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_md"
+                android:text="Nivel de Contingencia:"
+                android:textSize="12sp"
+                android:textColor="@color/text_secondary" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/chip_risk_medico"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:background="@drawable/bg_chip_inactive"
+                    android:text="Médica"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="6dp" />
+
+                <TextView
+                    android:id="@+id/chip_risk_seguridad"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    android:gravity="center"
+                    android:background="@drawable/bg_chip_active"
+                    android:text="Seguridad"
+                    android:textColor="@color/halcon_cyan_tech"
+                    android:textStyle="bold"
+                    android:textSize="11sp"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="6dp" />
+
+                <TextView
+                    android:id="@+id/chip_risk_acoso"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    android:gravity="center"
+                    android:background="@drawable/bg_chip_inactive"
+                    android:text="Acoso/Peligro"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="6dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Toggle Modo Silencioso -->
+        <LinearLayout
+            android:id="@+id/layout_silent_mode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_md"
+            android:background="@drawable/bg_card_glass_dark"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="@dimen/spacing_md">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/panic_silent_mode"
+                    android:textColor="@color/text_primary"
+                    android:textStyle="bold"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/panic_silent_mode_desc"
+                    android:textSize="11sp"
+                    android:textColor="@color/text_tertiary" />
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/cb_silent_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false" />
+        </LinearLayout>
+
+        <!-- Botón Cancelar Alarma -->
+        <Button
+            android:id="@+id/btn_cancel_panic"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="@dimen/spacing_lg"
+            android:background="@drawable/bg_chip_inactive"
+            android:text="@string/panic_cancel_button"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+</ScrollView>

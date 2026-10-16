@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Módulo Flash Study Groups: Mesas de Trabajo y Estudio Espontáneas en Campus ITTOL -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="@dimen/spacing_lg"
+    android:paddingEnd="@dimen/spacing_lg"
+    android:paddingTop="@dimen/spacing_md">
+
+    <!-- Encabezado -->
+    <LinearLayout
+        android:id="@+id/layout_study_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/study_groups_title"
+            android:style="@style/Typography.HeadlineMedium" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/study_groups_subtitle"
+            android:style="@style/Typography.BodySubtle" />
+    </LinearLayout>
+
+    <!-- Filtros de Carrera (Chips Horizontales) -->
+    <HorizontalScrollView
+        android:id="@+id/scroll_study_filters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_study_header"
+        android:layout_marginTop="@dimen/spacing_md"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/chip_study_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_chip_active"
+                android:text="Todas las Carreras"
+                android:textColor="@color/halcon_cyan_tech"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp" />
+
+            <TextView
+                android:id="@+id/chip_study_sistemas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_sm"
+                android:background="@drawable/bg_chip_inactive"
+                android:text="Ing. Sistemas (ISC)"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp" />
+
+            <TextView
+                android:id="@+id/chip_study_mecatronica"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_sm"
+                android:background="@drawable/bg_chip_inactive"
+                android:text="Ing. Mecatrónica"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp" />
+
+            <TextView
+                android:id="@+id/chip_study_quimica"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_sm"
+                android:background="@drawable/bg_chip_inactive"
+                android:text="Ing. Química"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Lista de Mesas de Estudio Activas -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_study_groups"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/scroll_study_filters"
+        android:layout_marginTop="@dimen/spacing_md"
+        android:clipToPadding="false"
+        android:paddingBottom="80dp" />
+
+    <!-- Botón Flotante para Crear Sala -->
+    <LinearLayout
+        android:id="@+id/btn_create_study_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/spacing_xl"
+        android:background="@drawable/bg_button_gradient_gold"
+        android:paddingStart="@dimen/spacing_xl"
+        android:paddingEnd="@dimen/spacing_xl"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:gravity="center"
+        android:elevation="@dimen/elevation_card_hover">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/study_groups_create_button"
+            android:textColor="@color/text_on_gold"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</RelativeLayout>

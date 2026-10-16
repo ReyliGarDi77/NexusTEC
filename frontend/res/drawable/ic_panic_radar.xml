@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <!-- Centro de Alerta Carmesí -->
+    <path
+        android:fillColor="#EF4444"
+        android:pathData="M24,18 A6,6 0 1,1 24,30 A6,6 0 1,1 24,18 Z" />
+    <!-- Onda 1 -->
+    <path
+        android:strokeColor="#EF4444"
+        android:strokeWidth="2.5"
+        android:pathData="M16,16 A11.31,11.31 0 0,1 32,16 M32,32 A11.31,11.31 0 0,1 16,32" />
+    <!-- Onda 2 -->
+    <path
+        android:strokeColor="#F87171"
+        android:strokeWidth="2"
+        android:pathData="M10,10 A19.8,19.8 0 0,1 38,10 M38,38 A19.8,19.8 0 0,1 10,38" />
+</vector>
