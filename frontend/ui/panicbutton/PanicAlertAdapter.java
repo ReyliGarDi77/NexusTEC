@@ -37,3 +37,4 @@ public class PanicAlertAdapter extends BaseAdapter<PanicAlert, PanicAlertAdapter
         }
     }
 }
+
