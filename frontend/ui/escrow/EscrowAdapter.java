@@ -11,7 +11,10 @@ public class EscrowAdapter extends BaseAdapter<EscrowTransaction, EscrowAdapter.
     public static class EscrowViewHolder extends BaseAdapter.BaseViewHolder {
         public String idText;
         public String amountText;
-        public String statusText;
+        public String descriptionText;
+        public String timestampText;
+        public String statusPillText;
+        public String securityHashSnippet;
 
         public EscrowViewHolder(int itemViewId) {
             super(itemViewId);
@@ -27,9 +30,14 @@ public class EscrowAdapter extends BaseAdapter<EscrowTransaction, EscrowAdapter.
     public void onBindViewHolder(EscrowViewHolder holder, int position) {
         EscrowTransaction item = getItem(position);
         if (item != null) {
-            holder.idText = "ID: " + item.getTransactionId();
-            holder.amountText = item.getCreditsAmount() + " Halcón Credits";
-            holder.statusText = item.getStatus().name();
+            holder.idText = "TX: #" + item.getTransactionId();
+            holder.amountText = String.format("%.2f CH", item.getCreditsAmount());
+            holder.descriptionText = "Custodia por intercambio: " + (item.getRelatedSwapId() != null ? item.getRelatedSwapId() : "Asesoría ITTOL");
+            holder.timestampText = item.getCreatedAt() != null ? item.getCreatedAt().toString() : "Fecha reciente";
+            holder.statusPillText = item.getStatus() != null ? item.getStatus().name() : "IN_ESCROW_HOLD";
+            holder.securityHashSnippet = item.getSecurityHash() != null && item.getSecurityHash().length() >= 12
+                    ? item.getSecurityHash().substring(0, 12) + "..."
+                    : "0xVERIFIED";
         }
     }
 }

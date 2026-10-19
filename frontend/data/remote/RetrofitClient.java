@@ -17,12 +17,21 @@ public class RetrofitClient {
     private int readTimeoutSeconds = 30;
     private NexusApiService apiService;
 
+    public enum ApiMode {
+        LIVE_BACKEND_BRIDGE,
+        MOCK_OFFLINE
+    }
+
+    private ApiMode currentMode = ApiMode.LIVE_BACKEND_BRIDGE;
+    private BackendNexusApiService backendApiService;
+    private MockNexusApiService mockApiService;
+
     // Cache interno de instancias de servicio
     private final Map<Class<?>, Object> serviceCache = new ConcurrentHashMap<>();
 
     private RetrofitClient() {
         this.baseUrl = DEFAULT_BASE_URL;
-        initMockService();
+        initServices();
     }
 
     public static RetrofitClient getInstance() {
@@ -37,17 +46,39 @@ public class RetrofitClient {
     }
 
     /**
-     * Inicializa la implementación cliente de la interfaz de servicios.
+     * Inicializa los servicios con enlace directo al backend modular de Nexus-Tec.
      */
-    private void initMockService() {
-        // En entorno de demostración, pruebas y offline para ITTOL:
-        this.apiService = new MockNexusApiService();
-        // En entorno de producción conectado a gateway en la nube:
-        // Retrofit retrofit = new Retrofit.Builder()
-        //         .baseUrl(baseUrl)
-        //         .addConverterFactory(GsonConverterFactory.create())
-        //         .build();
-        // this.apiService = retrofit.create(NexusApiService.class);
+    private void initServices() {
+        this.backendApiService = new BackendNexusApiService();
+        this.mockApiService = new MockNexusApiService();
+        this.apiService = backendApiService;
+    }
+
+    public void setApiMode(ApiMode mode) {
+        this.currentMode = mode;
+        if (mode == ApiMode.LIVE_BACKEND_BRIDGE) {
+            if (backendApiService == null) {
+                backendApiService = new BackendNexusApiService();
+            }
+            this.apiService = backendApiService;
+        } else {
+            if (mockApiService == null) {
+                mockApiService = new MockNexusApiService();
+            }
+            this.apiService = mockApiService;
+        }
+    }
+
+    public ApiMode getCurrentMode() {
+        return currentMode;
+    }
+
+    public BackendNexusApiService getBackendApiService() {
+        return backendApiService;
+    }
+
+    public MockNexusApiService getMockApiService() {
+        return mockApiService;
     }
 
     public NexusApiService getApiService() {

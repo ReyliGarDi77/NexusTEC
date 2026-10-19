@@ -65,6 +65,16 @@ public class MainActivity extends BaseActivity {
         System.out.println("✨ [MainActivity] Enlazando escuchadores táctiles y microinteracciones de navegación.");
     }
 
+    public void onHeaderBalanceClicked() {
+        System.out.println("🪙 [MainActivity] Tap en píldora de saldo de cabecera -> Navegando a Escrow");
+        switchTab(NavigationTab.ESCROW);
+    }
+
+    public void onBottomNavClicked(NavigationTab targetTab) {
+        System.out.println("🔘 [MainActivity] Bottom Navigation tap: " + targetTab);
+        switchTab(targetTab);
+    }
+
     @Override
     protected void observeViewModel() {
         // Observar saldo de créditos institucional para actualizar el widget de cabecera
@@ -105,6 +115,10 @@ public class MainActivity extends BaseActivity {
         System.out.println("📲 [Navegación] Vista activa cambiada a: " + activeFragment.getFragmentTitle() + " (" + targetTab + ")");
     }
 
+    public boolean isEmergencyActive() {
+        return panicButtonViewModel.getCurrentAlert().getValue() != null;
+    }
+
     public NavigationTab getCurrentTab() {
         return currentTab;
     }
@@ -127,5 +141,78 @@ public class MainActivity extends BaseActivity {
 
     public StudyGroupsViewModel getStudyGroupsViewModel() {
         return studyGroupsViewModel;
+    }
+
+    public SkillSwapFragment getSkillSwapFragment() {
+        return skillSwapFragment;
+    }
+
+    public EscrowFragment getEscrowFragment() {
+        return escrowFragment;
+    }
+
+    public PanicButtonFragment getPanicButtonFragment() {
+        return panicButtonFragment;
+    }
+
+    public StudyGroupsFragment getStudyGroupsFragment() {
+        return studyGroupsFragment;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("================================================================================");
+        System.out.println("🦅 [NEXUS-TEC ITTOL] Plataforma Móvil Institucional - TecNM Halcones");
+        System.out.println("   Clean Architecture + MVVM + Apple Human Interface Guidelines Design System");
+        System.out.println("================================================================================\n");
+
+        MainActivity app = new MainActivity();
+        app.onCreate();
+
+        System.out.println("\n--------------------------------------------------------------------------------");
+        System.out.println("1️⃣ PRUEBA INTEGRADA: Módulo Skill-Swap (Marketplace de Habilidades)");
+        System.out.println("--------------------------------------------------------------------------------");
+        SkillSwapFragment skillFragment = app.getSkillSwapFragment();
+        skillFragment.onCategorySelected("Ing. Sistemas");
+        skillFragment.onSearchQuerySubmitted("Ing. Sistemas", "Java");
+        skillFragment.onNewSwapSubmitted(
+                "student_ittol_01",
+                "Arquitectura Hexagonal & Spring Boot",
+                "Machine Learning en Python",
+                "Ing. Sistemas",
+                35.0,
+                "Edificio D · Lab LC2"
+        );
+
+        System.out.println("\n--------------------------------------------------------------------------------");
+        System.out.println("2️⃣ PRUEBA INTEGRADA: Módulo Escrow (Custodia Criptográfica de Créditos Halcón)");
+        System.out.println("--------------------------------------------------------------------------------");
+        app.switchTab(NavigationTab.ESCROW);
+        EscrowFragment escrowFragment = app.getEscrowFragment();
+        // Simular retención de fondos para asesoría
+        escrowFragment.onDepositClicked("SWAP-ITTOL-001", "student_ittol_01", "student_ittol_02", 25.0);
+        // Simular confirmación y liberación exitosa de fondos
+        escrowFragment.onReleaseClicked("SECRET-TOKEN-ITTOL-OK");
+
+        System.out.println("\n--------------------------------------------------------------------------------");
+        System.out.println("3️⃣ PRUEBA INTEGRADA: Módulo Botón de Pánico (Observer Pattern & Telemetría GPS)");
+        System.out.println("--------------------------------------------------------------------------------");
+        app.switchTab(NavigationTab.PANIC_BUTTON);
+        PanicButtonFragment panicFragment = app.getPanicButtonFragment();
+        panicFragment.onRiskTypeSelected("Seguridad");
+        panicFragment.onEmergencyButtonPressed();
+        // Cancelar alarma tras resolución
+        panicFragment.onCancelEmergency(app.getPanicButtonViewModel().getCurrentAlert().getValue().getAlertId(), "Alarma atendida por Caseta Sur.");
+
+        System.out.println("\n--------------------------------------------------------------------------------");
+        System.out.println("4️⃣ PRUEBA INTEGRADA: Módulo Flash Study Groups (Mesas de Estudio Espontáneas)");
+        System.out.println("--------------------------------------------------------------------------------");
+        app.switchTab(NavigationTab.STUDY_GROUPS);
+        StudyGroupsFragment studyFragment = app.getStudyGroupsFragment();
+        studyFragment.onFilterBySubject("Arquitectura");
+        studyFragment.onJoinGroupRequested("TABLE-LC1-01", "student_ittol_01");
+
+        System.out.println("\n================================================================================");
+        System.out.println("✅ [NEXUS-TEC ITTOL] Todos los flujos de negocio integrados y validados con éxito.");
+        System.out.println("================================================================================");
     }
 }

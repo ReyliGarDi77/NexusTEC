@@ -35,6 +35,10 @@ public class EscrowRepository {
         return instance;
     }
 
+    private NexusApiService getApi() {
+        return apiService != null ? apiService : RetrofitClient.getInstance().getApiService();
+    }
+
     public EscrowTransaction createEscrowHold(String swapId, String payerId, String payeeId, double creditsAmount) {
         EscrowTransaction transaction = new EscrowTransaction(
                 "escrow_" + System.currentTimeMillis(),
@@ -46,8 +50,9 @@ public class EscrowRepository {
         );
         transactionCache.put(transaction.getTransactionId(), transaction);
 
-        if (apiService != null) {
-            ApiResponse<EscrowTransaction> response = apiService.createEscrowHold(swapId, payerId, payeeId, creditsAmount);
+        NexusApiService api = getApi();
+        if (api != null) {
+            ApiResponse<EscrowTransaction> response = api.createEscrowHold(swapId, payerId, payeeId, creditsAmount);
             if (response != null && response.isSuccess() && response.getData() != null) {
                 transactionCache.put(response.getData().getTransactionId(), response.getData());
                 return response.getData();
@@ -60,8 +65,9 @@ public class EscrowRepository {
         if (transactionCache.containsKey(transactionId)) {
             return transactionCache.get(transactionId);
         }
-        if (apiService != null) {
-            ApiResponse<EscrowTransaction> response = apiService.getEscrowTransaction(transactionId);
+        NexusApiService api = getApi();
+        if (api != null) {
+            ApiResponse<EscrowTransaction> response = api.getEscrowTransaction(transactionId);
             if (response != null && response.isSuccess() && response.getData() != null) {
                 transactionCache.put(transactionId, response.getData());
                 return response.getData();
@@ -71,33 +77,44 @@ public class EscrowRepository {
     }
 
     public boolean releaseCredits(String transactionId, String secretConfirmation) {
+        NexusApiService api = getApi();
+        if (api != null) {
+            ApiResponse<EscrowTransaction> response = api.releaseEscrowCredits(transactionId, secretConfirmation);
+            if (response != null && response.isSuccess() && response.getData() != null) {
+                transactionCache.put(transactionId, response.getData());
+                return true;
+            }
+        }
         EscrowTransaction transaction = transactionCache.get(transactionId);
         if (transaction != null) {
             transaction.setStatus(EscrowTransaction.TransactionStatus.RELEASED);
-            if (apiService != null) {
-                apiService.releaseEscrowCredits(transactionId, secretConfirmation);
-            }
             return true;
         }
         return false;
     }
 
     public boolean disputeTransaction(String transactionId, String reason) {
+        NexusApiService api = getApi();
+        if (api != null) {
+            ApiResponse<EscrowTransaction> response = api.disputeEscrow(transactionId, reason);
+            if (response != null && response.isSuccess() && response.getData() != null) {
+                transactionCache.put(transactionId, response.getData());
+                return true;
+            }
+        }
         EscrowTransaction transaction = transactionCache.get(transactionId);
         if (transaction != null) {
             transaction.setStatus(EscrowTransaction.TransactionStatus.DISPUTED);
             transaction.setDisputeReason(reason);
-            if (apiService != null) {
-                apiService.disputeEscrow(transactionId, reason);
-            }
             return true;
         }
         return false;
     }
 
     public double getWalletBalance(String studentId) {
-        if (apiService != null) {
-            ApiResponse<HalconUser> response = apiService.getHalconWalletBalance(studentId);
+        NexusApiService api = getApi();
+        if (api != null) {
+            ApiResponse<HalconUser> response = api.getHalconWalletBalance(studentId);
             if (response != null && response.isSuccess() && response.getData() != null) {
                 return response.getData().getHalconCreditsBalance();
             }

@@ -76,6 +76,19 @@ public class EscrowLedgerService {
         return false;
     }
 
+    public boolean refund(String transactionId, String reason) {
+        CustodyEntry entry = ledger.get(transactionId);
+        if (entry != null) {
+            entry.state = "REFUNDED";
+            return true;
+        }
+        return false;
+    }
+
+    public CustodyEntry getEntry(String transactionId) {
+        return ledger.get(transactionId);
+    }
+
     public List<CustodyEntry> getAllEntries() {
         return new ArrayList<>(ledger.values());
     }

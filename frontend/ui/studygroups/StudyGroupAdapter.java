@@ -8,11 +8,30 @@ import ui.base.BaseAdapter;
  */
 public class StudyGroupAdapter extends BaseAdapter<StudyGroup, StudyGroupAdapter.StudyGroupViewHolder> {
 
+    public interface OnJoinClickListener {
+        void onJoinClick(StudyGroup group, int position);
+    }
+
+    private OnJoinClickListener joinClickListener;
+
+    public void setOnJoinClickListener(OnJoinClickListener listener) {
+        this.joinClickListener = listener;
+    }
+
+    public void triggerJoinClick(int position) {
+        StudyGroup group = getItem(position);
+        if (group != null && joinClickListener != null) {
+            joinClickListener.onJoinClick(group, position);
+        }
+    }
+
     public static class StudyGroupViewHolder extends BaseAdapter.BaseViewHolder {
         public String subjectText;
         public String topicText;
         public String capacityBadge;
         public String locationText;
+        public boolean isFull;
+        public String joinButtonText;
 
         public StudyGroupViewHolder(int itemViewId) {
             super(itemViewId);
@@ -31,8 +50,10 @@ public class StudyGroupAdapter extends BaseAdapter<StudyGroup, StudyGroupAdapter
             holder.subjectText = item.getSubjectName();
             holder.topicText = item.getTopicDescription();
             int current = item.getMemberStudentIds() != null ? item.getMemberStudentIds().size() : 0;
+            holder.isFull = current >= item.getMaxCapacity();
             holder.capacityBadge = current + "/" + item.getMaxCapacity() + " Miembros";
-            holder.locationText = "📍 " + item.getMeetingLocation();
+            holder.locationText = "📍 " + (item.getMeetingLocation() != null ? item.getMeetingLocation() : "Campus ITTOL");
+            holder.joinButtonText = holder.isFull ? "Cupo Lleno" : "Unirme";
         }
     }
 }

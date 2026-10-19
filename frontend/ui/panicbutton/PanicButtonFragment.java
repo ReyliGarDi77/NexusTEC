@@ -12,6 +12,7 @@ import viewmodel.PanicButtonViewModel;
 public class PanicButtonFragment extends BaseFragment {
     private final PanicButtonViewModel viewModel;
     private String selectedRiskType = "Seguridad";
+    private PanicAlertAdapter alertAdapter;
 
     public PanicButtonFragment(PanicButtonViewModel viewModel) {
         this.viewModel = viewModel;
@@ -25,6 +26,7 @@ public class PanicButtonFragment extends BaseFragment {
     @Override
     protected void initViews() {
         System.out.println("🚨 [PanicButtonFragment] Inicializando sistema de seguridad y radar de contingencia.");
+        alertAdapter = new PanicAlertAdapter();
         viewModel.setLocation("Edificio D - Laboratorios de Cómputo (Planta Baja)");
         viewModel.refreshActiveAlerts();
     }
@@ -56,12 +58,23 @@ public class PanicButtonFragment extends BaseFragment {
             System.out.println("📍 [PanicButton Telemetría] Bloqueo Satelital GPS: " + location);
         });
 
+        viewModel.getActiveAlertsList().observe(alerts -> {
+            if (alertAdapter != null && alerts != null) {
+                alertAdapter.updateList(alerts);
+                System.out.println("🚨 [PanicButtonFragment] Lista de alertas activas en campus: " + alerts.size());
+            }
+        });
+
         viewModel.getSuccessMessage().observe(success -> {
             if (success != null) {
                 performHapticFeedback(HapticType.SUCCESS_NOTIFICATION);
                 System.out.println("ℹ️ [PanicButtonFragment] " + success);
             }
         });
+    }
+
+    public PanicAlertAdapter getAlertAdapter() {
+        return alertAdapter;
     }
 
     public void onEmergencyButtonPressed() {

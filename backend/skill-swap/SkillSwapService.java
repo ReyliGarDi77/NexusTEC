@@ -65,5 +65,18 @@ public class SkillSwapService {
         registry.put(record.id, record);
         return record;
     }
+
+    public SwapRecord getSwap(String id) {
+        return registry.get(id);
+    }
+
+    public boolean updateStatus(String id, String newStatus) {
+        SwapRecord record = registry.get(id);
+        if (record != null) {
+            record.status = newStatus;
+            return true;
+        }
+        return false;
+    }
 }
 

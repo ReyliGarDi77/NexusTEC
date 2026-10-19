@@ -33,9 +33,14 @@ public class StudyGroupRepository {
         return instance;
     }
 
+    private NexusApiService getApi() {
+        return apiService != null ? apiService : RetrofitClient.getInstance().getApiService();
+    }
+
     public List<StudyGroup> getOpenGroups(String subjectFilter) {
-        if (apiService != null) {
-            ApiResponse<List<StudyGroup>> response = apiService.getOpenStudyGroups(subjectFilter);
+        NexusApiService api = getApi();
+        if (api != null) {
+            ApiResponse<List<StudyGroup>> response = api.getOpenStudyGroups(subjectFilter);
             if (response != null && response.isSuccess() && response.getData() != null) {
                 for (StudyGroup g : response.getData()) {
                     groupsCache.put(g.getGroupId(), g);
@@ -60,8 +65,9 @@ public class StudyGroupRepository {
         }
         groupsCache.put(group.getGroupId(), group);
 
-        if (apiService != null) {
-            ApiResponse<StudyGroup> response = apiService.createStudyGroup(group);
+        NexusApiService api = getApi();
+        if (api != null) {
+            ApiResponse<StudyGroup> response = api.createStudyGroup(group);
             if (response != null && response.isSuccess() && response.getData() != null) {
                 groupsCache.put(response.getData().getGroupId(), response.getData());
                 return response.getData();
@@ -74,8 +80,9 @@ public class StudyGroupRepository {
         StudyGroup group = groupsCache.get(groupId);
         if (group != null) {
             boolean added = group.addMember(studentId);
-            if (added && apiService != null) {
-                apiService.joinStudyGroup(groupId, studentId);
+            NexusApiService api = getApi();
+            if (added && api != null) {
+                api.joinStudyGroup(groupId, studentId);
             }
             return added;
         }

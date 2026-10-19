@@ -54,6 +54,19 @@ public class CampusDispatchService {
         return false;
     }
 
+    public EmergencyEvent getEvent(String alertId) {
+        return activeEvents.get(alertId);
+    }
+
+    public boolean updateStatus(String alertId, String newStatus) {
+        EmergencyEvent event = activeEvents.get(alertId);
+        if (event != null) {
+            event.status = newStatus;
+            return true;
+        }
+        return false;
+    }
+
     public List<EmergencyEvent> getActiveEvents() {
         return new ArrayList<>(activeEvents.values());
     }

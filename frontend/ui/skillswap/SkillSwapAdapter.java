@@ -9,8 +9,11 @@ import ui.base.BaseAdapter;
 public class SkillSwapAdapter extends BaseAdapter<SkillSwap, SkillSwapAdapter.SkillSwapViewHolder> {
 
     public static class SkillSwapViewHolder extends BaseAdapter.BaseViewHolder {
-        public String titleText;
+        public String categoryText;
         public String creditsText;
+        public String offeredText;
+        public String requestedText;
+        public String locationText;
         public String statusBadgeText;
 
         public SkillSwapViewHolder(int itemViewId) {
@@ -27,9 +30,12 @@ public class SkillSwapAdapter extends BaseAdapter<SkillSwap, SkillSwapAdapter.Sk
     public void onBindViewHolder(SkillSwapViewHolder holder, int position) {
         SkillSwap item = getItem(position);
         if (item != null) {
-            holder.titleText = "Ofrece: " + item.getOfferedSkill() + " | Busca: " + item.getRequestedSkill();
-            holder.creditsText = item.getAgreedHalconCredits() + " Créditos Halcón";
-            holder.statusBadgeText = item.getStatus().name();
+            holder.categoryText = item.getCategory() != null ? item.getCategory().toUpperCase() : "GENERAL";
+            holder.creditsText = String.format("%.0f CH", item.getAgreedHalconCredits());
+            holder.offeredText = "Ofrece: " + item.getOfferedSkill();
+            holder.requestedText = "Busca: " + item.getRequestedSkill();
+            holder.locationText = item.getMeetingLocation() != null ? item.getMeetingLocation() : "Campus ITTOL";
+            holder.statusBadgeText = item.getStatus() != null ? item.getStatus().name() : "PENDING";
         }
     }
 }

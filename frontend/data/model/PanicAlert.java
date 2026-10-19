@@ -120,7 +120,15 @@ public class PanicAlert implements Serializable {
         return level;
     }
 
+    public AlertLevel getAlertLevel() {
+        return level;
+    }
+
     public void setLevel(AlertLevel level) {
+        this.level = level;
+    }
+
+    public void setAlertLevel(AlertLevel level) {
         this.level = level;
     }
 

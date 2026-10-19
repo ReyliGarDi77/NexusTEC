@@ -48,10 +48,35 @@ public class ClassroomLocatorService {
     public boolean joinTable(String tableId, String studentCode) {
         StudyTable table = tables.get(tableId);
         if (table != null && table.currentAttendees.size() < table.capacity) {
-            table.currentAttendees.add(studentCode);
-            return true;
+            if (!table.currentAttendees.contains(studentCode)) {
+                table.currentAttendees.add(studentCode);
+                return true;
+            }
         }
         return false;
+    }
+
+    public boolean leaveTable(String tableId, String studentCode) {
+        StudyTable table = tables.get(tableId);
+        if (table != null) {
+            return table.currentAttendees.remove(studentCode);
+        }
+        return false;
+    }
+
+    public StudyTable getTable(String tableId) {
+        return tables.get(tableId);
+    }
+
+    public StudyTable createTable(StudyTable table) {
+        if (table.tableId == null || table.tableId.isEmpty()) {
+            table.tableId = "TABLE-" + System.currentTimeMillis();
+        }
+        if (table.scheduledTime == null) {
+            table.scheduledTime = new Date();
+        }
+        tables.put(table.tableId, table);
+        return table;
     }
 }
 

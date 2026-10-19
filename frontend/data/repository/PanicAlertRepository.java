@@ -33,6 +33,10 @@ public class PanicAlertRepository {
         return instance;
     }
 
+    private NexusApiService getApi() {
+        return apiService != null ? apiService : RetrofitClient.getInstance().getApiService();
+    }
+
     public PanicAlert triggerAlert(PanicAlert alert) {
         if (alert == null) return null;
         if (alert.getAlertId() == null || alert.getAlertId().isEmpty()) {
@@ -40,8 +44,9 @@ public class PanicAlertRepository {
         }
         activeAlertsCache.put(alert.getAlertId(), alert);
 
-        if (apiService != null) {
-            ApiResponse<PanicAlert> response = apiService.triggerPanicAlert(alert);
+        NexusApiService api = getApi();
+        if (api != null) {
+            ApiResponse<PanicAlert> response = api.triggerPanicAlert(alert);
             if (response != null && response.isSuccess() && response.getData() != null) {
                 activeAlertsCache.put(response.getData().getAlertId(), response.getData());
                 return response.getData();
@@ -55,8 +60,9 @@ public class PanicAlertRepository {
         if (alert != null) {
             alert.setStatus(PanicAlert.AlertStatus.FALSE_ALARM);
             alert.setNotes(reason);
-            if (apiService != null) {
-                apiService.cancelPanicAlert(alertId, reason);
+            NexusApiService api = getApi();
+            if (api != null) {
+                api.cancelPanicAlert(alertId, reason);
             }
             return true;
         }
@@ -64,8 +70,9 @@ public class PanicAlertRepository {
     }
 
     public List<PanicAlert> getActiveAlerts() {
-        if (apiService != null) {
-            ApiResponse<List<PanicAlert>> response = apiService.getActiveCampusAlerts();
+        NexusApiService api = getApi();
+        if (api != null) {
+            ApiResponse<List<PanicAlert>> response = api.getActiveCampusAlerts();
             if (response != null && response.isSuccess() && response.getData() != null) {
                 for (PanicAlert a : response.getData()) {
                     activeAlertsCache.put(a.getAlertId(), a);

@@ -37,6 +37,12 @@ public class StudyGroupsFragment extends BaseFragment {
             System.out.println("👥 [StudyGroupsFragment] Mesa de estudio seleccionada: " + group.getSubjectName() + " en " + group.getMeetingLocation());
             viewModel.selectGroup(group);
         });
+
+        adapter.setOnJoinClickListener((group, position) -> {
+            performHapticFeedback(HapticType.MEDIUM_IMPACT);
+            System.out.println("🤝 [StudyGroupsFragment] Tap en 'Unirme' para la mesa: " + group.getSubjectName());
+            onJoinGroupRequested(group.getGroupId(), "student_ittol_01");
+        });
     }
 
     @Override

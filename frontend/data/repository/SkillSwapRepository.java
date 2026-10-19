@@ -34,9 +34,14 @@ public class SkillSwapRepository {
         return instance;
     }
 
+    private NexusApiService getApi() {
+        return apiService != null ? apiService : RetrofitClient.getInstance().getApiService();
+    }
+
     public List<SkillSwap> getAvailableSwaps(String category, String keyword) {
-        if (apiService != null) {
-            ApiResponse<List<SkillSwap>> response = apiService.getAvailableSkillSwaps(category, keyword);
+        NexusApiService api = getApi();
+        if (api != null) {
+            ApiResponse<List<SkillSwap>> response = api.getAvailableSkillSwaps(category, keyword);
             if (response != null && response.isSuccess() && response.getData() != null) {
                 for (SkillSwap swap : response.getData()) {
                     localCache.put(swap.getSwapId(), swap);
@@ -51,8 +56,9 @@ public class SkillSwapRepository {
         if (localCache.containsKey(swapId)) {
             return localCache.get(swapId);
         }
-        if (apiService != null) {
-            ApiResponse<SkillSwap> response = apiService.getSkillSwapById(swapId);
+        NexusApiService api = getApi();
+        if (api != null) {
+            ApiResponse<SkillSwap> response = api.getSkillSwapById(swapId);
             if (response != null && response.isSuccess()) {
                 SkillSwap swap = response.getData();
                 if (swap != null) {
@@ -71,8 +77,9 @@ public class SkillSwapRepository {
         }
         localCache.put(skillSwap.getSwapId(), skillSwap);
 
-        if (apiService != null) {
-            ApiResponse<SkillSwap> response = apiService.createSkillSwap(skillSwap);
+        NexusApiService api = getApi();
+        if (api != null) {
+            ApiResponse<SkillSwap> response = api.createSkillSwap(skillSwap);
             if (response != null && response.isSuccess() && response.getData() != null) {
                 localCache.put(response.getData().getSwapId(), response.getData());
                 return response.getData();
@@ -85,8 +92,9 @@ public class SkillSwapRepository {
         SkillSwap swap = localCache.get(swapId);
         if (swap != null) {
             swap.setStatus(newStatus);
-            if (apiService != null) {
-                apiService.updateSkillSwapStatus(swapId, newStatus.name());
+            NexusApiService api = getApi();
+            if (api != null) {
+                api.updateSkillSwapStatus(swapId, newStatus.name());
             }
             return true;
         }
